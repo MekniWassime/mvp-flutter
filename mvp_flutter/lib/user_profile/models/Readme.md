@@ -1,0 +1,1 @@
+This folder contains the models related to the User Profile Module
