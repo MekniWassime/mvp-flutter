@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvp_flutter/register_children/views/children_screen.dart';
 import 'package:mvp_flutter/user_profile/presenters/profile_presenter.dart';
 import 'package:provider/provider.dart';
 
@@ -21,9 +22,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
       body: Consumer<ProfilePresenter>(
         builder: (context, presenter, child) {
-          if (presenter.user == null)
-            return Center(child: Text("Loading"));
-          else
+          if (presenter.user == null) {
+            return const Center(child: Text("Loading"));
+          } else {
             return Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -43,20 +44,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           child: TextFormField(
                         controller: phoneController,
                         keyboardType: TextInputType.number,
-                        decoration:
-                            InputDecoration(label: Text("Edit Phone Number")),
+                        decoration: const InputDecoration(
+                            label: Text("Edit Phone Number")),
                       )),
                       TextButton(
                           onPressed: () {
                             profilePresenter
                                 .updatePhoneNumber(phoneController.text);
                           },
-                          child: Text("Update Phone Number"))
+                          child: const Text("Update Phone Number"))
                     ],
                   ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ChildrenScreen(),
+                    ));
+                  },
+                  child: const Text("Register Children"),
                 )
               ],
             );
+          }
         },
       ),
     );
@@ -85,11 +95,11 @@ class Element extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(fontSize: 17),
+            style: const TextStyle(fontSize: 17),
           ),
           Text(
             value,
-            style: TextStyle(fontSize: 17),
+            style: const TextStyle(fontSize: 17),
           )
         ],
       ),

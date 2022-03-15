@@ -1,0 +1,1 @@
+folder contains all the views of the Register Children Module

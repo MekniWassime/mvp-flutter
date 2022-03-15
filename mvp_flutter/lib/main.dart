@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvp_flutter/register_children/presenters/children_presenter.dart';
 import 'package:mvp_flutter/user_profile/presenters/profile_presenter.dart';
 import 'package:mvp_flutter/user_profile/views/profile_screen.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => ProfilePresenter(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ChildrenPresenter(),
         ),
       ],
       child: MaterialApp(
